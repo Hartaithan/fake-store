@@ -1,16 +1,17 @@
 import axios from "axios";
+import { API_URL } from "../../config";
 
 const config = {
-  baseURL: "https://fakestoreapi.com",
+  baseURL: API_URL,
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
   },
 };
 
-const API = axios.create(config);
+const apiInstance = axios.create(config);
 
-API.interceptors.request.use(
+apiInstance.interceptors.request.use(
   async (conf) => {
     const token = undefined;
     if (token) {
@@ -24,4 +25,4 @@ API.interceptors.request.use(
   },
 );
 
-export default API;
+export default apiInstance;
